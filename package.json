@@ -5,7 +5,7 @@
   },
   "license": "MIT",
   "private": true,
-  "name": "mdxpress-blog-dev-deploy",
+  "name": "typace-inkwire",
   "version": "1.0.0",
   "description": "Lightweight Blog Platform for Automatic Markdown Rendering",
   "main": "core3.js",
