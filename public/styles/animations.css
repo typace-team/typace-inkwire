@@ -1,0 +1,317 @@
+/**
+ * ANIMATIONS & TRANSITIONS
+ * Modern, smooth animation system
+ */
+
+/* ============================================================================
+   FADE ANIMATIONS
+   ============================================================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s var(--timing-ease-in-out) forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.6s var(--timing-ease-in-out) forwards;
+}
+
+/* ============================================================================
+   SLIDE ANIMATIONS
+   ============================================================================ */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.6s var(--timing-ease-in-out) forwards;
+}
+
+.slide-in-down {
+  animation: slideInDown 0.6s var(--timing-ease-in-out) forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s var(--timing-ease-in-out) forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s var(--timing-ease-in-out) forwards;
+}
+
+/* ============================================================================
+   SCALE ANIMATIONS
+   ============================================================================ */
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.scale-in {
+  animation: scaleIn 0.4s var(--timing-ease-in-out) forwards;
+}
+
+.scale-out {
+  animation: scaleOut 0.4s var(--timing-ease-in-out) forwards;
+}
+
+/* ============================================================================
+   PULSE & BREATHING ANIMATIONS
+   ============================================================================ */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes breath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse {
+  animation: pulse 2s var(--timing-ease-in-out) infinite;
+}
+
+.breath {
+  animation: breath 3s var(--timing-ease-in-out) infinite;
+}
+
+/* ============================================================================
+   SHIMMER & SKELETON LOADING
+   ============================================================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ============================================================================
+   GRADIENT ANIMATIONS
+   ============================================================================ */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-animated {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* ============================================================================
+   BOUNCE ANIMATIONS
+   ============================================================================ */
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+/* ============================================================================
+   SPIN ANIMATIONS
+   ============================================================================ */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================================================
+   FLIP ANIMATIONS
+   ============================================================================ */
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0deg);
+  }
+}
+
+.flip-in {
+  animation: flipIn 0.6s var(--timing-ease-in-out) forwards;
+}
+
+/* ============================================================================
+   STAGGER ANIMATIONS
+   ============================================================================ */
+
+.stagger {
+  animation: slideInUp 0.6s var(--timing-ease-in-out) forwards;
+}
+
+.stagger > * {
+  animation: slideInUp 0.6s var(--timing-ease-in-out) forwards;
+}
+
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 100ms; }
+.stagger > *:nth-child(3) { animation-delay: 200ms; }
+.stagger > *:nth-child(4) { animation-delay: 300ms; }
+.stagger > *:nth-child(5) { animation-delay: 400ms; }
+.stagger > *:nth-child(n+6) { animation-delay: 500ms; }
+
+/* ============================================================================
+   HOVER EFFECTS
+   ============================================================================ */
+
+.hover-lift {
+  transition: transform var(--duration-200) var(--timing-ease),
+              box-shadow var(--duration-200) var(--timing-ease);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.hover-glow {
+  transition: text-shadow var(--duration-300) var(--timing-ease-in-out);
+}
+
+.hover-glow:hover {
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* ============================================================================
+   TRANSITION UTILITIES
+   ============================================================================ */
+
+.transition-fast {
+  transition: all var(--duration-100) var(--timing-ease);
+}
+
+.transition-base {
+  transition: all var(--duration-200) var(--timing-ease);
+}
+
+.transition-slow {
+  transition: all var(--duration-500) var(--timing-ease-in-out);
+}
