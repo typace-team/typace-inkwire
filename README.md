@@ -1,5 +1,4 @@
-# 🚀 MDXpress Blog - CNP (Compiled N' Portable)
-
+# 🚀 typace-inkwire，正在开发中
 **MDXpress Blog - CNP** is a serverless-friendly version of the original [MDXpress Blog](https://github.com/eshan-singh78/MDXpress-Blog/), reworked to deploy seamlessly on platforms like **Vercel** using **Serverless Functions**.
 
 It’s a markdown-powered, minimal blogging platform that compiles content on-the-fly without any backend server, database, or complex setup.
