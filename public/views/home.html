@@ -1,197 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Typace Inkwire - A premium markdown-powered blog platform" />
-  <title>{{title}}</title>
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/styles/design-system.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/animations.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Typace Inkwire - A premium markdown-powered blog platform" />
+    <title>{{title}}</title>
+    
+    <!-- Copilot's Stylesheets (保持原样) -->
+    <link rel="stylesheet" href="/styles/design-system.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/animations.css" />
+
+    <!-- [CRITICAL FIX 1] 提前执行主题初始化，防止刷新时白屏闪烁 -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <!-- [CRITICAL FIX 2] 核弹级暗黑模式内联补丁 (无视外部 CSS 优先级) -->
+    <style>
+        /* 1. 强制全屏高度，杜绝底部白边 */
+        html, body {
+            height: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. 针对 body.dark-mode 的强制染黑补丁 (精准覆盖 layout.css) */
+        body.dark-mode {
+            background-color: var(--bg-primary, #09090b) !important;
+            color: var(--text-primary, #f5f5f5) !important;
+        }
+
+        body.dark-mode main,
+        body.dark-mode .content-inner,
+        body.dark-mode .post-content,
+        body.dark-mode .section {
+            background-color: var(--bg-primary, #09090b) !important;
+            color: var(--text-primary, #f5f5f5) !important;
+            border-color: var(--neutral-800, #27272a) !important;
+        }
+
+        /* 3. 修复 Copilot 写死的半透明 Hero 区域 */
+        body.dark-mode .hero-section {
+            background: var(--bg-secondary, #18181b) !important;
+            border-bottom: 1px solid var(--neutral-800, #27272a) !important;
+        }
+
+        /* 4. 修复卡片和 Footer 的对比度 */
+        body.dark-mode .card,
+        body.dark-mode .blog-card,
+        body.dark-mode footer {
+            background-color: var(--bg-elevated, #1f1f23) !important;
+            border-color: var(--neutral-800, #27272a) !important;
+            color: var(--text-primary, #f5f5f5) !important;
+        }
+
+        body.dark-mode header {
+            background-color: rgba(9, 9, 11, 0.95) !important;
+            border-bottom: 1px solid var(--neutral-800, #27272a) !important;
+        }
+    </style>
 </head>
 <body>
-  <!-- HEADER & NAVIGATION -->
-  <header>
-    <div class="header-inner">
-      <a href="/" class="header-brand">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-          <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        <span>Inkwire</span>
-      </a>
-      
-      <nav class="header-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/api/blog">Blog</a></li>
-        <li><a href="/api/about">About</a></li>
-      </nav>
-      
-      <div class="header-actions">
-        <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
-          <span id="theme-icon">🌙</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- HERO SECTION -->
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-content">
-          <h1 class="fade-in">{{title}}</h1>
-          <p class="subtitle fade-in" style="animation-delay: 100ms;">A premium, serverless markdown blog platform designed for developers and minimalists</p>
-          <div class="hero-actions fade-in" style="animation-delay: 200ms;">
-            <a href="/api/blog" class="btn btn-primary">Read Articles</a>
-            <a href="#features" class="btn btn-secondary">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Why Inkwire?</h2>
-          <p class="section-subtitle">Everything you need for modern blogging</p>
-        </div>
-        
-        <div class="blog-grid" style="margin-top: var(--space-8);">
-          <div class="card hover-lift">
-            <div class="card-body">
-              <h3 style="color: var(--brand-primary); margin-bottom: var(--space-3);">⚡ Lightning Fast</h3>
-              <p>Serverless architecture ensures blazing-fast load times and instant deployments to your readers.</p>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-inner">
+            <a href="/" class="header-brand">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span>Inkwire</span>
+            </a>
+            <nav class="header-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/api/blog">Blog</a></li>
+                <li><a href="/api/about">About</a></li>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+                    <span id="theme-icon">🌙</span>
+                </button>
             </div>
-          </div>
-          
-          <div class="card hover-lift">
-            <div class="card-body">
-              <h3 style="color: var(--brand-secondary); margin-bottom: var(--space-3);">📝 Pure Markdown</h3>
-              <p>Write in clean, readable Markdown. No complex editors. No learning curve. Just your thoughts.</p>
-            </div>
-          </div>
-          
-          <div class="card hover-lift">
-            <div class="card-body">
-              <h3 style="color: var(--brand-tertiary); margin-bottom: var(--space-3);">🎨 Beautiful Design</h3>
-              <p>Premium, modern UI with dark mode support, smooth animations, and responsive layouts.</p>
-            </div>
-          </div>
-          
-          <div class="card hover-lift">
-            <div class="card-body">
-              <h3 style="color: var(--brand-accent); margin-bottom: var(--space-3);">🔧 Developer Friendly</h3>
-              <p>Built for developers by developers. Full control, no vendor lock-in, open source philosophy.</p>
-            </div>
-          </div>
-          
-          <div class="card hover-lift">
-            <div class="card-body">
-              <h3 style="color: var(--brand-primary); margin-bottom: var(--space-3);">🌍 Deploy Anywhere</h3>
-              <p>Works perfectly on Vercel, Netlify, or any serverless platform. Deploy with a single push.</p>
-            </div>
-          </div>
-          
-          <div class="card hover-lift">
-            <div class="card-body">
-              <h3 style="color: var(--brand-secondary); margin-bottom: var(--space-3);">♿ Accessible</h3>
-              <p>WCAG compliant with semantic HTML, keyboard navigation, and screen reader support.</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- CONTENT SECTION -->
-    <section class="section">
-      <div class="container content-inner">
-        <div class="post-content slide-in-up">
-          {{content}}
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="fade-in">{{title}}</h1>
+                    <p class="subtitle fade-in" style="animation-delay: 100ms;">A premium, serverless markdown blog platform designed for developers and minimalists</p>
+                    <div class="hero-actions fade-in" style="animation-delay: 200ms;">
+                        <a href="/api/blog" class="btn btn-primary">Read Articles</a>
+                        <a href="#features" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Inkwire?</h2>
+                    <p class="section-subtitle">Everything you need for modern blogging</p>
+                </div>
+                <div class="blog-grid" style="margin-top: var(--space-8);">
+                    <div class="card hover-lift">
+                        <div class="card-body">
+                            <h3 style="color: var(--brand-primary); margin-bottom: var(--space-3);">⚡ Lightning Fast</h3>
+                            <p>Serverless architecture ensures blazing-fast load times and instant deployments to your readers.</p>
+                        </div>
+                    </div>
+                    <div class="card hover-lift">
+                        <div class="card-body">
+                            <h3 style="color: var(--brand-secondary); margin-bottom: var(--space-3);">📝 Pure Markdown</h3>
+                            <p>Write in clean, readable Markdown. No complex editors. No learning curve. Just your thoughts.</p>
+                        </div>
+                    </div>
+                    <div class="card hover-lift">
+                        <div class="card-body">
+                            <h3 style="color: var(--brand-tertiary); margin-bottom: var(--space-3);">🎨 Beautiful Design</h3>
+                            <p>Premium, modern UI with dark mode support, smooth animations, and responsive layouts.</p>
+                        </div>
+                    </div>
+                    <div class="card hover-lift">
+                        <div class="card-body">
+                            <h3 style="color: var(--brand-accent); margin-bottom: var(--space-3);">🔧 Developer Friendly</h3>
+                            <p>Built for developers by developers. Full control, no vendor lock-in, open source philosophy.</p>
+                        </div>
+                    </div>
+                    <div class="card hover-lift">
+                        <div class="card-body">
+                            <h3 style="color: var(--brand-primary); margin-bottom: var(--space-3);">🌍 Deploy Anywhere</h3>
+                            <p>Works perfectly on Vercel, Netlify, or any serverless platform. Deploy with a single push.</p>
+                        </div>
+                    </div>
+                    <div class="card hover-lift">
+                        <div class="card-body">
+                            <h3 style="color: var(--brand-secondary); margin-bottom: var(--space-3);">♿ Accessible</h3>
+                            <p>WCAG compliant with semantic HTML, keyboard navigation, and screen reader support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTENT SECTION -->
+        <section class="section">
+            <div class="container content-inner">
+                <div class="post-content slide-in-up">
+                    {{content}}
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Inkwire</h3>
+                    <p>A modern markdown-powered blog platform for developers who value simplicity and quality.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/api/blog">Blog</a></li>
+                        <li><a href="/api/about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Typace Inkwire. All rights reserved.</p>
+                <p>Powered by <strong>Typace Inkwire</strong> ✨</p>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Inkwire</h3>
-          <p>A modern markdown-powered blog platform for developers who value simplicity and quality.</p>
-        </div>
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/api/blog">Blog</a></li>
-            <li><a href="/api/about">About</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Support</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Typace Inkwire. All rights reserved.</p>
-        <p>Powered by <strong>Typace Inkwire</strong> ✨</p>
-      </div>
-    </div>
-  </footer>
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
+        ↑
+    </button>
 
-  <!-- BACK TO TOP BUTTON -->
-  <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">
-    ↑
-  </button>
+    <!-- SCRIPTS (修复了主题同步和闪烁问题) -->
+    <script>
+        function initTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-icon').textContent = '☀️';
+            }
+        }
 
-  <!-- SCRIPTS -->
-  <script>
-    // Initialize theme from localStorage
-    function initTheme() {
-      const theme = localStorage.getItem('theme') || 'light';
-      if (theme === 'dark') {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-icon').textContent = '☀️';
-      }
-    }
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        }
 
-    // Toggle dark mode
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
-    }
+        window.addEventListener('scroll', function() {
+            const backToTopBtn = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
 
-    // Back to top functionality
-    window.addEventListener('scroll', function() {
-      const backToTopBtn = document.getElementById('backToTop');
-      if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-
-    // Initialize on load
-    document.addEventListener('DOMContentLoaded', initTheme);
-  </script>
+        document.addEventListener('DOMContentLoaded', initTheme);
+    </script>
 </body>
 </html>
