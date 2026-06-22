@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/PROFILE.png" alt="Welcome Banner" width="100%" />
+  <img src="https://github.com/typace-team/typace-team/raw/main/PROFILE.png" alt="Welcome Banner" width="100%" />
 </p>
 
 # 👋 Welcome to typace-team's World! ![Dream Began](https://img.shields.io/badge/The_Dream_Began-Jan_31,_2025-blueviolet?style=for-the-badge&logo=starship&logoColor=white)
