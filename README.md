@@ -67,7 +67,7 @@ mdxpress-blog-cnp/
 
 ## 🙋‍♂️ About the Creator
 
-Crafted by [@typace-team](https://github.com/typace-team/), a Junior High School Student (Grade 9) based in Shanghai, China.
+Crafted by [@typace-team](https://github.com/typace-team/), Junior High School Students (Grade 9) based in Shanghai, China.
 
 ---
 
