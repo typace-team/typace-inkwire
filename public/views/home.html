@@ -359,7 +359,7 @@
                     filtered.forEach(p => {
                         const li = document.createElement('li');
                         li.innerHTML = `<strong>${p.title}</strong><small>${p.excerpt ? p.excerpt + '...' : ''}</small>`;
-                        li.onclick = () => window.location.href = `/blog/${p.slug}`;
+                        li.onclick = () => window.location.href = `/api/blog/${p.slug}`;
                         searchResults.appendChild(li);
                     });
                 } else {
