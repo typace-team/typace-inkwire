@@ -33,7 +33,7 @@ It’s a markdown-powered, minimal blogging platform that compiles content on-th
 ## 📁 Project Structure
 
 ```
-mdxpress-blog-cnp/
+typace-inkwire/
 ├── api/                 # Serverless function handlers
 │   ├── index.js         # Homepage rendering
 │   ├── blog.js          # Blog listing route
