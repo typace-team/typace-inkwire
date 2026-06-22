@@ -65,6 +65,84 @@
             background-color: rgba(9, 9, 11, 0.95) !important;
             border-bottom: 1px solid var(--neutral-800, #27272a) !important;
         }
+
+        /* =========================================
+           [NEW] 搜索框专属样式补丁 (完美适配暗黑模式)
+           ========================================= */
+        .search-container {
+            max-width: 600px;
+            margin: 32px auto 0;
+            position: relative;
+            width: 100%;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 20px;
+            border: 1px solid var(--neutral-300, #d4d4d8);
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: var(--bg-primary, #ffffff);
+            color: var(--text-primary, #18181b);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+        .search-input::placeholder {
+            color: var(--neutral-500, #71717a);
+        }
+        .search-input:focus {
+            border-color: var(--brand-primary, #3b82f6);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        .search-results {
+            display: none;
+            position: absolute;
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            background: var(--bg-elevated, #ffffff);
+            border: 1px solid var(--neutral-200, #e4e4e7);
+            border-radius: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 0 0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            box-sizing: border-box;
+        }
+        .search-results li {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--neutral-200, #e4e4e7);
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .search-results li:last-child {
+            border-bottom: none;
+        }
+        .search-results li:hover {
+            background: var(--bg-secondary, #f4f4f5);
+        }
+        .search-results strong {
+            display: block;
+            font-size: 15px;
+            color: var(--text-primary, #18181b);
+            margin-bottom: 4px;
+        }
+        .search-results small {
+            font-size: 13px;
+            color: var(--neutral-500, #71717a);
+        }
+        /* 暗黑模式下的搜索框微调 */
+        body.dark-mode .search-results {
+            border-color: var(--neutral-800, #27272a);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+        body.dark-mode .search-results li {
+            border-bottom-color: var(--neutral-800, #27272a);
+        }
+        body.dark-mode .search-results li:hover {
+            background: var(--bg-primary, #09090b);
+        }
     </style>
 </head>
 <body>
@@ -102,6 +180,12 @@
                     <div class="hero-actions fade-in" style="animation-delay: 200ms;">
                         <a href="/api/blog" class="btn btn-primary">Read Articles</a>
                         <a href="#features" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    
+                    <!-- [NEW] 全局搜索框 (置于 Hero 底部) -->
+                    <div class="search-container fade-in" style="animation-delay: 300ms;">
+                        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search articles..." autocomplete="off">
+                        <ul id="searchResults" class="search-results"></ul>
                     </div>
                 </div>
             </div>
@@ -184,9 +268,11 @@
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
+                        <!-- [NEW] 补充了 RSS 和 Sitemap 的快捷链接 -->
+                        <li><a href="/rss.xml" target="_blank">RSS Feed</a></li>
+                        <li><a href="/sitemap.xml" target="_blank">Sitemap</a></li>
                         <li><a href="#">Documentation</a></li>
                         <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -202,8 +288,9 @@
         ↑
     </button>
 
-    <!-- SCRIPTS (修复了主题同步和闪烁问题) -->
+    <!-- SCRIPTS (修复了主题同步和闪烁问题 + 搜索逻辑) -->
     <script>
+        // ================= 主题与 UI 逻辑 =================
         function initTheme() {
             const theme = localStorage.getItem('theme') || 'light';
             if (theme === 'dark') {
@@ -232,6 +319,64 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // ================= [NEW] 搜索框核心逻辑 =================
+        let postsCache = null;
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        async function fetchPosts() {
+            if (!postsCache) {
+                try {
+                    const res = await fetch('/api/search');
+                    if (!res.ok) throw new Error('Network response was not ok');
+                    postsCache = await res.json();
+                } catch (err) {
+                    console.error('Failed to fetch posts for search:', err);
+                    postsCache = [];
+                }
+            }
+            return postsCache;
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', async (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                searchResults.innerHTML = '';
+                
+                if (!query) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+
+                const posts = await fetchPosts();
+                const filtered = posts.filter(p => 
+                    p.title.toLowerCase().includes(query) || 
+                    (p.excerpt && p.excerpt.toLowerCase().includes(query))
+                );
+
+                if (filtered.length > 0) {
+                    searchResults.style.display = 'block';
+                    filtered.forEach(p => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<strong>${p.title}</strong><small>${p.excerpt ? p.excerpt + '...' : ''}</small>`;
+                        li.onclick = () => window.location.href = `/blog/${p.slug}`;
+                        searchResults.appendChild(li);
+                    });
+                } else {
+                    searchResults.style.display = 'block';
+                    searchResults.innerHTML = '<li style="cursor: default; text-align: center; color: var(--neutral-500);">No articles found</li>';
+                }
+            });
+
+            // 点击外部关闭下拉框
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-container')) {
+                    searchResults.style.display = 'none';
+                }
+            });
+        }
+
+        // ================= 初始化 =================
         document.addEventListener('DOMContentLoaded', initTheme);
     </script>
 </body>
