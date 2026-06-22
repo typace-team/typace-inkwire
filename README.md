@@ -1,4 +1,4 @@
-
+![type with pace](/lang.png)
 ![Ultra-fast Deployment](/online.png)
 ![Typace Stats](/Typace-Inkwire.png)
 
