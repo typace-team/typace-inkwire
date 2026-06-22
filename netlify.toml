@@ -1,0 +1,22 @@
+[build]
+  # 指定静态资源目录（原项目的 public 目录）
+  publish = "public"
+  # 指定 Netlify 函数目录
+  functions = "netlify/functions"
+
+# 路由映射：将页面请求重定向到对应的 Netlify 函数
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/index-handler"
+  status = 200
+
+[[redirects]]
+  from = "/blog"
+  to = "/.netlify/functions/blog-handler"
+  status = 200
+
+[[redirects]]
+  # 捕获动态路由 /blog/:slug
+  from = "/blog/*"
+  to = "/.netlify/functions/slug-handler"
+  status = 200
