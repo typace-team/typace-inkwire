@@ -12,46 +12,38 @@
   --color-secondary: #7c3aed;
   --color-accent: #ec4899;
   
-  --color-background: #ffffff;
-  --color-surface: #f8fafc;
-  --color-surface-secondary: #f1f5f9;
+  /* 核心背景与表面色 (Light) */
+  --color-background: #f4f4f9; /* 保留旧版浅灰背景，但现在是变量了 */
+  --color-surface: #ffffff;    /* 卡片、footer 等表面颜色 */
+  --color-surface-secondary: #f8fafc;
   
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-tertiary: #94a3b8;
+  /* 核心文字色 (Light) */
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-text-tertiary: #999999;
   
-  --color-border: #e2e8f0;
-  --color-divider: #cbd5e1;
+  /* 边框与分割线 (Light) */
+  --color-border: #dddddd;
+  --color-divider: #eeeeee;
   
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-  
-  /* Dark Mode Overrides */
-  --color-bg-dark: #0f172a;
-  --color-surface-dark: #1e293b;
-  --color-surface-dark-secondary: #334155;
-  
-  --color-text-dark-primary: #f1f5f9;
-  --color-text-dark-secondary: #cbd5e1;
-  --color-text-dark-tertiary: #94a3b8;
-  
-  --color-border-dark: #334155;
-  --color-divider-dark: #475569;
-  
+  /* 链接与代码块 (Light) */
+  --color-link: #1e90ff;
+  --color-code-bg: #f1f5f9;
+  --color-code-text: #333333;
+
   /* Typography */
-  --font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-sans: Arial, sans-serif;
   --font-family-mono: 'Monaco', 'Courier New', monospace;
   
-  --font-size-xs: 0.75rem;      /* 12px */
-  --font-size-sm: 0.875rem;     /* 14px */
-  --font-size-base: 1rem;       /* 16px */
-  --font-size-lg: 1.125rem;     /* 18px */
-  --font-size-xl: 1.25rem;      /* 20px */
-  --font-size-2xl: 1.5rem;      /* 24px */
-  --font-size-3xl: 1.875rem;    /* 30px */
-  --font-size-4xl: 2.25rem;     /* 36px */
-  --font-size-5xl: 3rem;        /* 48px */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
   
   --font-weight-light: 300;
   --font-weight-normal: 400;
@@ -60,105 +52,48 @@
   --font-weight-bold: 700;
   
   --line-height-tight: 1.2;
-  --line-height-snug: 1.375;
   --line-height-normal: 1.5;
-  --line-height-relaxed: 1.625;
-  --line-height-loose: 2;
+  --line-height-relaxed: 1.6;
   
-  /* Spacing System (8px base) */
-  --spacing-xs: 0.25rem;    /* 4px */
-  --spacing-sm: 0.5rem;     /* 8px */
-  --spacing-md: 1rem;       /* 16px */
-  --spacing-lg: 1.5rem;     /* 24px */
-  --spacing-xl: 2rem;       /* 32px */
-  --spacing-2xl: 2.5rem;    /* 40px */
-  --spacing-3xl: 3rem;      /* 48px */
-  --spacing-4xl: 4rem;      /* 64px */
+  /* Spacing System */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 2.5rem;
+  --spacing-3xl: 3rem;
   
   /* Border Radius */
-  --radius-sm: 0.375rem;    /* 6px */
-  --radius-md: 0.5rem;      /* 8px */
-  --radius-lg: 0.75rem;     /* 12px */
-  --radius-xl: 1rem;        /* 16px */
-  --radius-2xl: 1.5rem;     /* 24px */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
   --radius-full: 9999px;
   
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  
-  --shadow-sm-dark: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
-  --shadow-md-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-  --shadow-lg-dark: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-  
   /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* Z-index Scale */
-  --z-dropdown: 1000;
-  --z-sticky: 100;
-  --z-fixed: 1000;
-  --z-modal: 2000;
-  --z-notification: 3000;
-}
-
-/* Dark Mode */
-body.dark-mode {
-  --color-background: var(--color-bg-dark);
-  --color-surface: var(--color-surface-dark);
-  --color-surface-secondary: var(--color-surface-dark-secondary);
-  
-  --color-text-primary: var(--color-text-dark-primary);
-  --color-text-secondary: var(--color-text-dark-secondary);
-  --color-text-tertiary: var(--color-text-dark-tertiary);
-  
-  --color-border: var(--color-border-dark);
-  --color-divider: var(--color-divider-dark);
+  --transition-base: 0.3s ease;
 }
 
 /* =========================================
-   INKWIRE: 全局暗黑模式终极修复补丁
-   (Global Dark Mode Fix for Index & Blog)
+   DARK MODE VARIABLES (全局统一使用 data-theme)
    ========================================= */
-
-/* 1. 根治“底部露白”：强制 html 和 body 撑满整个屏幕高度 */
-html, body {
-    height: 100%;
-    min-height: 100vh; /* 确保即使内容很少，背景也能铺满全屏 */
-    margin: 0;
-    padding: 0;
-}
-
-/* 2. 强制根元素和 body 在暗黑模式下统一使用背景色变量 */
-html[data-theme="dark"],
-html[data-theme="dark"] body {
-    background-color: var(--bg-primary, #0F0F11) !important;
-    color: var(--text-primary, #EAEAEA) !important;
-}
-
-/* 3. 扫荡“顽固容器”：强制所有常见的主容器在暗黑模式下变黑 */
-html[data-theme="dark"] main,
-html[data-theme="dark"] .container,
-html[data-theme="dark"] .wrapper,
-html[data-theme="dark"] .content,
-html[data-theme="dark"] .post-content,
-html[data-theme="dark"] .article-body,
-html[data-theme="dark"] section {
-    background-color: var(--bg-primary, #0F0F11) !important;
-    color: var(--text-primary, #EAEAEA) !important;
-}
-
-/* 4. 修复卡片和代码块在暗黑模式下的对比度 */
-html[data-theme="dark"] .card,
-html[data-theme="dark"] .post-item,
-html[data-theme="dark"] pre,
-html[data-theme="dark"] code {
-    background-color: var(--bg-secondary, #1A1A1D) !important;
-    border-color: var(--border-color, #333336) !important;
-    color: var(--text-primary, #EAEAEA) !important;
+html[data-theme="dark"] {
+  /* 核心背景与表面色 (Dark) */
+  --color-background: #121212; /* 深邃黑背景 */
+  --color-surface: #1e1e1e;    /* 卡片、footer 等表面颜色 */
+  --color-surface-secondary: #2a2a2a;
+  
+  /* 核心文字色 (Dark) */
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-tertiary: #888888;
+  
+  /* 边框与分割线 (Dark) */
+  --color-border: #333333;
+  --color-divider: #444444;
+  
+  /* 链接与代码块 (Dark) */
+  --color-link: #90caf9;
+  --color-code-bg: #1e1e1e;
+  --color-code-text: #dcdcdc;
 }
