@@ -66,5 +66,4 @@ A toggle button on the top right corner of the blog allows switching between lig
 ---
 
 Enjoy blogging with **Typace Inkwire** and Markdown simplicity ✨
-```
 
