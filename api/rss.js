@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     return res.status(500).send('Error reading blogs directory');
   }
 
-  const siteUrl = 'https://yourdomain.com'; // ⚠️ 替换为你的实际域名
+  const siteUrl = 'https://inkwire.mrche.top'; // ⚠️ 替换为你的实际域名
   let rssItems = '';
 
   files.forEach(file => {
@@ -33,8 +33,8 @@ module.exports = async (req, res) => {
     rssItems += `
       <item>
         <title><![CDATA[${title}]]></title>
-        <link>${siteUrl}/blog/${slug}</link>
-        <guid>${siteUrl}/blog/${slug}</guid>
+        <link>${siteUrl}/api/blog/${slug}</link>
+        <guid>${siteUrl}/api/blog/${slug}</guid>
         <pubDate>${pubDate}</pubDate>
         <description><![CDATA[${excerpt}]]></description>
       </item>`;
