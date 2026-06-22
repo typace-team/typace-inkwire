@@ -38,11 +38,13 @@ typace-inkwire/
 │   ├── index.js         # Homepage rendering
 │   ├── blog.js          # Blog listing route
 │   └── blog/[slug].js   # Dynamic blog rendering
-│   └── about.js
+│   └── about.js         # about
 ├── public/
 │   ├── blogs/           # Markdown files for each blog post
 │   ├── styles/          # CSS with dark mode support
 │   └── views/           # HTML templates
+│   └── md/              # your index
+│   └── assets/          # free cdn
 ├── vercel.json          # Vercel routing and config
 ├── package.json         # Metadata and dependencies
 └── README.md            # This file
