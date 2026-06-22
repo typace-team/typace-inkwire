@@ -1,4 +1,9 @@
-# 🚀 Typace Inkwire
+![Typace Stats](/Typace-Inkwire.png)
+
+# <div align="center">🚀 Typace Inkwire</div>
+
+<div align="center">
+
 Typace Inkwire, developed by @typace-team, is a lightweight, no-fuss blogging platform designed for developers and minimalists, reworked to deploy seamlessly on platforms like **Vercel** using **Serverless Functions**. Our goal is to enable even beginners to have their own blog.
 
 It’s a markdown-powered, minimal blogging platform that compiles content on-the-fly without any backend server, database, or complex setup.
@@ -63,6 +68,35 @@ mdxpress-blog-cnp/
 - All backend logic is handled via Serverless Functions in `/api`.
 - Static assets (styles, markdown files) are served from `/public`.
 - HTML templates are combined with rendered Markdown and returned as HTML.
+
+---
+
+## ✍️ Daily Writing Workflow (Zero-Config)
+
+Typace Inkwire is built for pure, distraction-free writing. We intentionally strip away the complexities of modern static site generators—there are no build steps, no complex configurations, and **no Front Matter** required.
+
+### How to Write and Publish
+1. **Create a new file**: Simply navigate to the `/public/blogs/` directory and create a new Markdown file (e.g., `my-new-thought.md`). The filename will typically act as your URL slug.
+2. **Just start writing**: Open the file and write your content using standard Markdown syntax. You don't need to add any YAML metadata or tags at the top.
+3. **The H1 Rule**: The very first Level 1 Heading (`# Your Title Here`) in your Markdown file will automatically be extracted by the system. It will be used as both the main article heading on the page and the browser tab title (`<title>`).
+4. **Embrace Minimalism**: We believe the content is what matters. Typace Inkwire is so lightweight that we don't even bother configuring a favicon (tab icon) by default. It’s just you and your words.
+
+---
+
+## 🏠 Customizing the Home Page
+
+The Home page is split into two distinct layers: the **textual content** and the **UI structure**. Depending on how deep you want to customize, you will edit different files.
+
+### 1. Updating the Content (`/public/md/index.md`)
+If you just want to update the welcome message, change the introductory text, or modify the list of links displayed on the home page:
+- Open `/public/md/index.md`.
+- Edit the Markdown text directly. This is the safest and fastest way to update your homepage copy without touching any HTML.
+
+### 2. Highly Personalized Layouts (`/public/views/home.html`)
+If you want to completely restructure the page, add a custom Hero section, embed specific widgets, or create a highly personalized UI layout:
+- Open `/public/views/home.html`.
+- Modify the HTML structure directly to build your custom layout.
+- **⚠️ Dark Mode Reminder**: When adding custom HTML/CSS to this file, **do not hardcode colors** (like `background: white;`). Always use the global CSS variables (e.g., `var(--color-surface)`) to ensure your custom home page looks perfect in both Light and Dark modes.
 
 ---
 
