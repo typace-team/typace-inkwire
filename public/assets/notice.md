@@ -1,4 +1,5 @@
-#Important Notice
+# Important Notice #
+
 The core advantage of Vercel lies in its serverless architecture and generous free tier, which make for an excellent user experience.
 Once deployed, you can use it as a lightweight image host, or store static documents and generate shareable links.
 However, keep these two limitations in mind:
