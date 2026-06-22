@@ -1,3 +1,5 @@
+
+![Ultra-fast Deployment](/online.png)
 ![Typace Stats](/Typace-Inkwire.png)
 
 # <div align="center">🚀 Typace Inkwire</div>
