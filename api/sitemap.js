@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     return res.status(500).send('Error reading blogs directory');
   }
 
-  const siteUrl = 'https://yourdomain.com'; // ⚠️ 替换为你的实际域名
+  const siteUrl = 'https://inkwire.mrche.top'; // ⚠️ 替换为你的实际域名
   const today = new Date().toISOString().split('T')[0];
 
   let urls = `
@@ -32,7 +32,7 @@ module.exports = async (req, res) => {
     const slug = file.replace('.md', '');
     urls += `
     <url>
-      <loc>${siteUrl}/blog/${slug}</loc>
+      <loc>${siteUrl}/api/blog/${slug}</loc>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
     </url>`;
