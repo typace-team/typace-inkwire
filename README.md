@@ -1,5 +1,5 @@
-# 🚀 typace-inkwire，正在开发中
-**MDXpress Blog - CNP** is a serverless-friendly version of the original [MDXpress Blog](https://github.com/eshan-singh78/MDXpress-Blog/), reworked to deploy seamlessly on platforms like **Vercel** using **Serverless Functions**.
+# 🚀 Typace Inkwire
+Typace Inkwire, developed by @typace-team, is a lightweight, no-fuss blogging platform designed for developers and minimalists, reworked to deploy seamlessly on platforms like **Vercel** using **Serverless Functions**. Our goal is to enable even beginners to have their own blog.
 
 It’s a markdown-powered, minimal blogging platform that compiles content on-the-fly without any backend server, database, or complex setup.
 
@@ -67,7 +67,7 @@ mdxpress-blog-cnp/
 
 ## 🙋‍♂️ About the Creator
 
-Crafted by [Eshan Singh](mailto:eshan.singh.04.dev@gmail.com), a full-stack developer & cybersecurity enthusiast exploring the balance of performance and simplicity in web apps.
+Crafted by [@typace-team](https://github.com/typace-team/), a Junior High School Student (Grade 9) based in Shanghai, China.
 
 ---
 
