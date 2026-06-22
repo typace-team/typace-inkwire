@@ -1,0 +1,9 @@
+const fs = require('fs');
+const path = require('path');
+
+module.exports = (req, res) => {
+    const htmlPath = path.join(process.cwd(), 'public', 'views', 'about.html');
+    const htmlContent = fs.readFileSync(htmlPath, 'utf-8');
+    res.setHeader('Content-Type', 'text/html');
+    res.status(200).send(htmlContent);
+};
