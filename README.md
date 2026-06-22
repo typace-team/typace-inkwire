@@ -6,9 +6,13 @@
 
 <div align="center">
 
-[🌐 Visit Website](https://inkwire.mrche.top) • [📖 Documentation](https://github.com/typace-team/typace-inkwire/blob/main/README.md) • [🔍 Issues](https://github.com/typace-team/typace-inkwire/issues) • [📧 Email](mailto:liyin_iup4wfsweb@aka.yeah.net)
+# <div align="center">[🌐 Visit Website](https://inkwire.mrche.top) • [📖 Documentation](https://github.com/typace-team/typace-inkwire/blob/main/README.md) • [🔍 Issues](https://github.com/typace-team/typace-inkwire/issues) • [📧 Email](mailto:liyin_iup4wfsweb@aka.yeah.net)</div>
 
-Typace Inkwire, developed by @typace-team, is a lightweight, no-fuss blogging platform designed for developers and minimalists, reworked to deploy seamlessly on platforms like **Vercel** using **Serverless Functions**. Our goal is to enable even beginners to have their own blog.
+<div align="center">
+
+
+
+Typace Inkwire, developed by @typace-team (only by Che, @che-ui), is a lightweight, no-fuss blogging platform designed for developers and minimalists, reworked to deploy seamlessly on platforms like **Vercel** using **Serverless Functions**. Our goal is to enable even beginners to have their own blog.
 
 It’s a markdown-powered, minimal blogging platform that compiles content on-the-fly without any backend server, database, or complex setup.
 
