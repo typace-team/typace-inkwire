@@ -5,7 +5,7 @@ It’s a markdown-powered, minimal blogging platform that compiles content on-th
 
 ---
 
-## ✨ What's New in CNP?
+## ✨ What's New in Inkwire?
 
 - ✅ **Serverless Architecture**: Powered by Vercel Serverless Functions.
 - 🪄 **Vercel-Ready**: No `server.js`, works natively with `vercel dev` and on production deploys.
