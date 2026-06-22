@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Typace Inkwire</title>
+    <link rel="stylesheet" href="/styles/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部极简导航 -->
+    <nav class="wire-nav">
+        <a href="/" class="logo-link">← <span class="mono">INKWIRE</span></a>
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">◐</button>
+    </nav>
+
+    <main class="editorial-grid">
+        <!-- Hero 区域：大字号视觉冲击 -->
+        <section class="hero-section">
+            <div class="hero-meta mono">
+                <span>TRANSMISSION_01</span>
+                <span class="divider"></span>
+                <span>EST. 2024</span>
+            </div>
+            <h1 class="hero-title serif">
+                We don't just write.<br>
+                <span class="italic">We transmit.</span>
+            </h1>
+            <p class="hero-subtitle">
+                在信息过载的时代，<strong>Inkwire</strong> 是一次向深度阅读和纯粹表达的回归。
+                我们将墨水（Ink）的沉稳与电报（Wire）的敏锐结合，只为传递最有价值的信号。
+            </p>
+        </section>
+
+        <!-- 理念区域：双栏非对称布局 -->
+        <section class="manifesto-section">
+            <div class="section-label mono">02 / MANIFESTO</div>
+            <div class="manifesto-grid">
+                <div class="manifesto-item">
+                    <h3 class="serif">The Ink <span class="italic">(Depth)</span></h3>
+                    <p>拒绝碎片化。我们推崇长篇距的深思熟虑，像传统报纸排版一样，给予文字应有的尊严和呼吸感。每一篇文章，都是一次沉静的墨迹沉淀。</p>
+                </div>
+                <div class="manifesto-item">
+                    <h3 class="serif">The Wire <span class="italic">(Signal)</span></h3>
+                    <p>追求极简与高效。剥离多余的 UI 噪音，利用现代化的 Serverless 架构，让内容像电报信号一样，以最快的速度、最纯粹的姿态直达读者视网膜。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技术栈/幕后：极客风格 -->
+        <section class="tech-section">
+            <div class="section-label mono">03 / THE_APPARATUS</div>
+            <div class="tech-box">
+                <div class="tech-row">
+                    <span class="mono key">RENDER_ENGINE</span>
+                    <span class="value">Vercel Serverless Functions</span>
+                </div>
+                <div class="tech-row">
+                    <span class="mono key">CONTENT_FORMAT</span>
+                    <span class="value">Raw Markdown (Compiled on-the-fly)</span>
+                </div>
+                <div class="tech-row">
+                    <span class="mono key">UI_PARADIGM</span>
+                    <span class="value">Editorial Minimalism (Zero Bloat)</span>
+                </div>
+                <div class="tech-row">
+                    <span class="mono key">DATABASE</span>
+                    <span class="value italic">None. Just files and logic.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部联系/版权 -->
+        <footer class="wire-footer">
+            <div class="footer-line"></div>
+            <div class="footer-content">
+                <p class="mono">END_OF_TRANSMISSION.</p>
+                <p class="mono">Crafted by <a href="https://github.com/typace-team" target="_blank">Typace Team</a>. Open Source & Serverless.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // 极简的主题切换逻辑 (配合 CSS 变量)
+        const toggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // 读取本地存储或系统偏好
+        const savedTheme = localStorage.getItem('inkwire-theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        html.setAttribute('data-theme', savedTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('inkwire-theme', next);
+        });
+    </script>
+</body>
+</html>
