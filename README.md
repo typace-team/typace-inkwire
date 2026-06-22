@@ -27,6 +27,7 @@ It’s a markdown-powered, minimal blogging platform that compiles content on-th
 - 📁 **/api Directory Support**: Each route is handled through functions inside the `/api/` folder.
 - ⚙️ **Markdown Compilation**: Still powered by `marked`, now running serverlessly.
 - 💅 **Same UI, Better Delivery**: No compromises on theming, dark mode, or user experience.
+- rss, sitemap, search bar, 404 page.
 
 ---
 
