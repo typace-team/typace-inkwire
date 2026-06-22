@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Typace Inkwire - A premium markdown-powered blog platform" />
+    <meta name="description" content="Typace Inkwire - Explore insights, ideas, and stories" />
     <title>{{title}}</title>
     
-    <!-- Copilot's Stylesheets (保持原样) -->
+    <!-- Copilot's Stylesheets -->
     <link rel="stylesheet" href="/styles/design-system.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/animations.css" />
@@ -23,20 +23,12 @@
 
     <!-- [CRITICAL FIX 2] 核弹级暗黑模式内联补丁 (无视外部 CSS 优先级) -->
     <style>
-        /* 1. 强制全屏高度，杜绝底部白边 */
-        html, body {
-            height: 100%;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
+        html, body { height: 100%; min-height: 100vh; margin: 0; padding: 0; }
 
-        /* 2. 针对 body.dark-mode 的强制染黑补丁 (精准覆盖 layout.css) */
         body.dark-mode {
             background-color: var(--bg-primary, #09090b) !important;
             color: var(--text-primary, #f5f5f5) !important;
         }
-
         body.dark-mode main,
         body.dark-mode .content-inner,
         body.dark-mode .post-content,
@@ -45,14 +37,10 @@
             color: var(--text-primary, #f5f5f5) !important;
             border-color: var(--neutral-800, #27272a) !important;
         }
-
-        /* 3. 修复 Copilot 写死的半透明 Hero 区域 */
         body.dark-mode .hero-section {
             background: var(--bg-secondary, #18181b) !important;
             border-bottom: 1px solid var(--neutral-800, #27272a) !important;
         }
-
-        /* 4. 修复卡片和 Footer 的对比度 */
         body.dark-mode .card,
         body.dark-mode .blog-card,
         body.dark-mode footer {
@@ -60,7 +48,6 @@
             border-color: var(--neutral-800, #27272a) !important;
             color: var(--text-primary, #f5f5f5) !important;
         }
-
         body.dark-mode header {
             background-color: rgba(9, 9, 11, 0.95) !important;
             border-bottom: 1px solid var(--neutral-800, #27272a) !important;
@@ -98,59 +85,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1 class="fade-in">{{title}}</h1>
-                    <p class="subtitle fade-in" style="animation-delay: 100ms;">A premium, serverless markdown blog platform designed for developers and minimalists</p>
-                    <div class="hero-actions fade-in" style="animation-delay: 200ms;">
-                        <a href="/api/blog" class="btn btn-primary">Read Articles</a>
-                        <a href="#features" class="btn btn-secondary">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURES SECTION -->
-        <section class="section" id="features">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Why Inkwire?</h2>
-                    <p class="section-subtitle">Everything you need for modern blogging</p>
-                </div>
-                <div class="blog-grid" style="margin-top: var(--space-8);">
-                    <div class="card hover-lift">
-                        <div class="card-body">
-                            <h3 style="color: var(--brand-primary); margin-bottom: var(--space-3);">⚡ Lightning Fast</h3>
-                            <p>Serverless architecture ensures blazing-fast load times and instant deployments to your readers.</p>
-                        </div>
-                    </div>
-                    <div class="card hover-lift">
-                        <div class="card-body">
-                            <h3 style="color: var(--brand-secondary); margin-bottom: var(--space-3);">📝 Pure Markdown</h3>
-                            <p>Write in clean, readable Markdown. No complex editors. No learning curve. Just your thoughts.</p>
-                        </div>
-                    </div>
-                    <div class="card hover-lift">
-                        <div class="card-body">
-                            <h3 style="color: var(--brand-tertiary); margin-bottom: var(--space-3);">🎨 Beautiful Design</h3>
-                            <p>Premium, modern UI with dark mode support, smooth animations, and responsive layouts.</p>
-                        </div>
-                    </div>
-                    <div class="card hover-lift">
-                        <div class="card-body">
-                            <h3 style="color: var(--brand-accent); margin-bottom: var(--space-3);">🔧 Developer Friendly</h3>
-                            <p>Built for developers by developers. Full control, no vendor lock-in, open source philosophy.</p>
-                        </div>
-                    </div>
-                    <div class="card hover-lift">
-                        <div class="card-body">
-                            <h3 style="color: var(--brand-primary); margin-bottom: var(--space-3);">🌍 Deploy Anywhere</h3>
-                            <p>Works perfectly on Vercel, Netlify, or any serverless platform. Deploy with a single push.</p>
-                        </div>
-                    </div>
-                    <div class="card hover-lift">
-                        <div class="card-body">
-                            <h3 style="color: var(--brand-secondary); margin-bottom: var(--space-3);">♿ Accessible</h3>
-                            <p>WCAG compliant with semantic HTML, keyboard navigation, and screen reader support.</p>
-                        </div>
-                    </div>
+                    <p class="subtitle fade-in" style="animation-delay: 100ms;">Explore insights, ideas, and stories</p>
                 </div>
             </div>
         </section>
@@ -171,7 +106,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Inkwire</h3>
-                    <p>A modern markdown-powered blog platform for developers who value simplicity and quality.</p>
+                    <p>A modern markdown-powered blog platform for developers.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
@@ -202,7 +137,7 @@
         ↑
     </button>
 
-    <!-- SCRIPTS (修复了主题同步和闪烁问题) -->
+    <!-- SCRIPTS -->
     <script>
         function initTheme() {
             const theme = localStorage.getItem('theme') || 'light';
