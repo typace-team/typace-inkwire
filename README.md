@@ -137,3 +137,8 @@ Crafted by [@typace-team](https://github.com/typace-team/), Junior High School S
 ---
 
 > Looking to contribute, request features, or report issues? Feel free to open a PR or issue!
+
+
+<div align="center">
+
+### Made with ❤️ by the Typace Team
