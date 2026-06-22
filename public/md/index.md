@@ -1,6 +1,6 @@
 # Typace Inkwire
 
-**MDXpress blog** is a lightweight, no-fuss blogging platform designed for developers and minimalists. It allows you to publish blog posts simply by uploading Markdown (`.md`) files to a folder. No CMS, no database—just clean and direct blogging.
+**Typace Inkwire**, developed by [@typace-team](https://github.com/typace-team), is a lightweight, no-fuss blogging platform designed for developers and minimalists. It allows you to publish blog posts simply by uploading Markdown (`.md`) files to a folder. No CMS, no database—just clean and direct blogging.
 
 ## 🚀 Features
 
@@ -29,7 +29,7 @@ Use standard Markdown to write your post.
 ```markdown
 # My First Post
 
-Welcome to my blog powered by **mdxpress**!
+Welcome to my blog powered by **Typace Inkwire**!
 
 - Simple  
 - Fast  
@@ -65,4 +65,6 @@ A toggle button on the top right corner of the blog allows switching between lig
 
 ---
 
-Enjoy blogging with Markdown simplicity ✨
+Enjoy blogging with **Typace Inkwire** and Markdown simplicity ✨
+```
+
