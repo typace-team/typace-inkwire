@@ -8,6 +8,8 @@ Typace Inkwire, developed by @typace-team, is a lightweight, no-fuss blogging pl
 
 It’s a markdown-powered, minimal blogging platform that compiles content on-the-fly without any backend server, database, or complex setup.
 
+</div>
+
 ---
 
 ## ✨ What's New in Inkwire?
