@@ -140,6 +140,23 @@ If you need to add special animations, form validations, or dynamic data fetchin
 
 ---
 
+## 🚀 Deployment
+
+This project is deeply customized based on the **Vercel Serverless** architecture (utilizing the `/api` directory and dynamic routing features). To achieve the best "zero-configuration" deployment experience, **we officially support and recommend deploying to Vercel only**.
+
+> **⚠️ Notice Regarding Netlify / Other Platforms:**
+> Since this project heavily relies on Vercel's Serverless routing mechanisms and file system features, deploying it directly to Netlify or other platforms may result in invalid API routes or file reading exceptions. If you need to run it on other platforms, please fork the repository and make the necessary adaptations yourself. Official support for deployment on other platforms is not provided.
+
+### One-Click Deploy to Vercel (Recommended)
+
+1. Click the **Deploy** button located on the right side of the title at the top of this README.
+2. Log in to your Vercel account (GitHub quick login is supported).
+3. Follow the prompts to import the project with one click. No complex build configuration is required to get your own blog up and running!
+
+*(Once deployed, Vercel will automatically assign you a free `.vercel.app` subdomain. You can also bind your own custom domain.)*
+
+---
+
 ## 🙋‍♂️ About the Creator
 
 Crafted by [@typace-team](https://github.com/typace-team/), Junior High School Students (Grade 9) based in Shanghai, China.
