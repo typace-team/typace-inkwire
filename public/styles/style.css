@@ -1,166 +1,105 @@
 /* =========================================
-   INKWIRE: 首页与博客页核心样式 (彻底重构版)
+   INKWIRE: 统一暗黑模式支持 (首页/博客页)
    ========================================= */
 
-/* 1. 根治“底部露白”：强制 html 和 body 撑满整个屏幕高度，并使用变量 */
+/* 1. 根治“底部露白” - 强制全屏背景 */
 html, body {
-    height: 100%;
-    min-height: 100vh; /* 关键：确保即使内容很少，背景也能铺满全屏 */
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-family-sans);
-    background-color: var(--color-background); /* 使用变量，不再写死 #f4f4f9 */
-    color: var(--color-text-primary);          /* 使用变量 */
-    display: flex;
-    flex-direction: column;
-    transition: background-color var(--transition-base), color var(--transition-base);
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-sans);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
-/* 2. 主内容区域：自动撑满剩余空间 */
+/* 2. 主内容区：自动撑满剩余空间 */
 .content {
-    flex: 1; /* 关键：让内容区撑满，把 footer 推到底部 */
-    padding: 20px;
-    background-color: var(--color-background); /* 确保内容区也是变量背景 */
+  flex: 1;
+  padding: 20px;
+  background-color: var(--color-background);
 }
 
-/* 3. 基础排版元素 */
-h1, h2, h3, p, a, footer {
-    transition: color var(--transition-base);
+/* 3. 关键修复：所有可能的容器强制继承背景色 */
+body.dark-mode,
+html[data-theme="dark"],
+body.dark-mode *:not([class*="code"]),
+html[data-theme="dark"] *:not([class*="code"]) {
+  background-color: var(--color-background) !important;
+  color: var(--color-text-primary) !important;
 }
 
-h1 {
-    color: var(--color-text-primary);
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+/* 4. 特别针对 Markdown 容器 - 重点修复 */
+.markdown-body,
+.post-content,
+.article-content,
+main,
+.container,
+.wrapper,
+.content-wrapper,
+section,
+#features,
+#content {
+  background-color: var(--color-background) !important;
+  color: var(--color-text-primary) !important;
 }
 
-h2 {
-    color: var(--color-text-primary);
-    font-size: 2rem;
-    margin-top: 20px;
-}
-
-h3 {
-    color: var(--color-text-secondary);
-    font-size: 1.5rem;
-    margin-top: 15px;
-}
-
-p {
-    font-size: 1rem;
-    color: var(--color-text-secondary);
-    line-height: var(--line-height-relaxed);
-}
-
-a {
-    color: var(--color-link);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* 4. 底部 Footer：彻底告别白色背景 */
+/* 5. 底部 Footer 修复 */
 footer {
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    color: var(--color-text-secondary);
-    background-color: var(--color-surface); /* 使用表面色变量，暗黑下自动变黑 */
-    border-top: 1px solid var(--color-border);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
 }
 
-/* 5. 代码块样式 */
+/* 6. 代码块修复 */
 pre, code {
-    background-color: var(--color-code-bg);
-    color: var(--color-code-text);
-    padding: 2px 4px;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-family-mono);
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
 }
 
 pre {
-    padding: 15px;
-    overflow-x: auto;
+  padding: 15px;
+  overflow-x: auto;
 }
 
-/* =========================================
-   按钮样式 (主题切换 & 导航)
-   ========================================= */
+/* 7. 按钮样式 (主题切换 & 导航) */
 button.theme-toggle,
 button.navigate-btn {
-    position: fixed;
-    top: 1rem;
-    padding: 0.5rem 1rem;
-    background: var(--color-surface);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-border);
-    cursor: pointer;
-    border-radius: var(--radius-sm);
-    font-size: 1rem;
-    transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
-    z-index: 1000;
+  position: fixed;
+  top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+  z-index: 1000;
 }
 
 button.theme-toggle {
-    right: 1rem;
+  right: 1rem;
 }
 
 button.navigate-btn {
-    right: 11rem; /* 保持原有位置 */
+  right: 11rem;
 }
 
 button.theme-toggle:hover,
 button.navigate-btn:hover {
-    background: var(--color-surface-secondary);
+  background: var(--color-surface-secondary);
 }
 
-button.theme-toggle:focus,
-button.navigate-btn:focus {
-    outline: none;
-}
-
-/* =========================================
-   核武器：强制所有主容器在暗黑模式下变黑
-   (解决“上面黑下面白”的终极方案)
-   ========================================= */
-
-/* 1. 强制文章内容区、Markdown 渲染区、主容器变黑 */
-html[data-theme="dark"] .markdown-body,
-html[data-theme="dark"] .post-content,
-html[data-theme="dark"] .article-content,
-html[data-theme="dark"] article,
-html[data-theme="dark"] main,
-html[data-theme="dark"] .main-content,
-html[data-theme="dark"] .wrapper,
-html[data-theme="dark"] .container,
-html[data-theme="dark"] #app,
-html[data-theme="dark"] #root,
-html[data-theme="dark"] .content-wrapper {
-    background-color: var(--color-background) !important;
-    color: var(--color-text-primary) !important;
-}
-
-/* 2. 强制所有卡片、列表项、区块变黑 */
-html[data-theme="dark"] .card,
-html[data-theme="dark"] .post-item,
-html[data-theme="dark"] .list-item,
-html[data-theme="dark"] .post-list,
-html[data-theme="dark"] section {
-    background-color: var(--color-surface) !important;
-    color: var(--color-text-primary) !important;
-}
-
-/* 3. 修复 Markdown 内部元素（表格、引用等）在暗黑下的显示 */
-html[data-theme="dark"] .markdown-body table th,
-html[data-theme="dark"] .markdown-body table td {
-    border-color: var(--color-border) !important;
-    background-color: var(--color-surface-secondary) !important;
-}
-
-html[data-theme="dark"] .markdown-body blockquote {
-    border-left-color: var(--color-primary) !important;
-    color: var(--color-text-secondary) !important;
-    background-color: var(--color-surface-secondary) !important;
+/* 8. 关键：强制所有页面容器在暗黑下变黑 */
+html[data-theme="dark"] body,
+body.dark-mode {
+  background-color: var(--color-background) !important;
 }
