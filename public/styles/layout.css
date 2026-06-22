@@ -557,3 +557,45 @@ footer {
     font-size: var(--text-base);
   }
 }
+
+/* =========================================
+   INKWIRE: 全局暗黑模式终极修复补丁
+   (Global Dark Mode Fix for Index & Blog)
+   ========================================= */
+
+/* 1. 根治“底部露白”：强制 html 和 body 撑满整个屏幕高度 */
+html, body {
+    height: 100%;
+    min-height: 100vh; /* 确保即使内容很少，背景也能铺满全屏 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. 强制根元素和 body 在暗黑模式下统一使用背景色变量 */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+    background-color: var(--bg-primary, #0F0F11) !important;
+    color: var(--text-primary, #EAEAEA) !important;
+}
+
+/* 3. 扫荡“顽固容器”：强制所有常见的主容器在暗黑模式下变黑 */
+html[data-theme="dark"] main,
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .wrapper,
+html[data-theme="dark"] .content,
+html[data-theme="dark"] .post-content,
+html[data-theme="dark"] .article-body,
+html[data-theme="dark"] section {
+    background-color: var(--bg-primary, #0F0F11) !important;
+    color: var(--text-primary, #EAEAEA) !important;
+}
+
+/* 4. 修复卡片和代码块在暗黑模式下的对比度 */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .post-item,
+html[data-theme="dark"] pre,
+html[data-theme="dark"] code {
+    background-color: var(--bg-secondary, #1A1A1D) !important;
+    border-color: var(--border-color, #333336) !important;
+    color: var(--text-primary, #EAEAEA) !important;
+}
