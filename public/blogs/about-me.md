@@ -1,87 +1,44 @@
-# Eshan Singh
- 
-📧 [eshan.singh.04.dev@gmail.com](mailto:eshan.singh.04.dev@gmail.com)  
-📍 Kanpur, Uttar Pradesh, India
+<p align="center">
+  <img src="/PROFILE.png" alt="Welcome Banner" width="100%" />
+</p>
+
+# 👋 Welcome to typace-team's World! ![Dream Began](https://img.shields.io/badge/The_Dream_Began-Jan_31,_2025-blueviolet?style=for-the-badge&logo=starship&logoColor=white)
+
+## 🚀 About Me
+- 🎓 **Junior High School Student (Grade 9)** based in **Shanghai, China**.
+- 💻 Passionate about **Python** and **Web Development** (HTML, CSS, JavaScript).
+- 🌱 Currently working on: **Next-Gen In-House Lightweight AI Model** & **Typace Blog Framework**.
+- ⚡ Sexy fact: I love building frameworks, training bots, and exploring new web technologies!
+
+## 🛠️ Tech Stack
+<p align="left">
+  <img src="https://img.shields.io/badge/-Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
+</p>
+
+## 🌐 Web Projects & Showcase
+Here are some of the web applications, blogs, and frameworks I've built:
+- 📰 **Typace Blog Framework**: [www.mrche.top](https://www.mrche.top)
+
+### 🌟 Milestone
+> *"Where it all began..."* 
+> 📅 **Jan 31, 2025**
+
+## 📊 GitHub Stats
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=typace-team&layout=compact&theme=radical" alt="Top Languages" />
+</p>
+
+## 🌍 Connect with Me
+Find my content and tutorials on various platforms:
+- 📺 **Bilibili (@che-ui)**: [车易达CHEYIDA](https://space.bilibili.com/3461581341985004)
+
+## 📬 Contact
+- ✉️ **Email**: [liyin_iup4wfsweb@aka.yeah.net](mailto:liyin_iup4wfsweb@aka.yeah.net)
 
 ---
-
-## 👋 About Me
-
-Hi, I'm Eshan Singh. Over the past few years, I’ve worked across diverse domains in tech including IoT, DevOps, Full Stack Web Development, and Cybersecurity. My passion for technology has consistently driven me to take on challenging roles and continuously learn and evolve.
-
----
-
-## 💼 Professional Experience
-
-### Cyber Security Engineer  
-**EGyanam Technology | Remote | June 2024 – March 2025**  
-- Developed tools and managed vulnerability scanners.  
-- Technologies: Python, Qualys, Tenable, Django.
-
-### Software Engineer (Internship)  
-**K12 Techno Services Pvt. Ltd. | Bengaluru | June 2024 – August 2024**  
-- Built automation tools for web scraping and bulk messaging.  
-- Worked on experimental EdTech products.  
-- Skills: Software Development, Automation.
-
-### Full Stack Developer  
-**Sangrah Innovations | Jan 2024 – Mar 2024**  
-- Built APIs for bill management and data handling.  
-- Contributed to a 20% project optimization.  
-- Collaborated in code reviews and debugging sessions.
-
-### Technical Specialist  
-**OTTOCLICK PVT. LTD. | May 2024 – Sept 2024**  
-- Integrated IoT automation with software.  
-- Maintained network traffic and system reliability.
-
-### Tech Specialist & Manager of Operations  
-**DEF CON Delhi | Nov 2023 – Present**  
-- Led CTF creation for 500+ participants.  
-- Migrated infrastructure from PHP to JS.  
-- Oversaw server, DNS, and traffic management.
-
----
-
-## 🧠 Skills
-
-### Technical  
-- **Backend**: Node.js, Express, Django, Python, Flask, FastAPI  
-- **Frontend**: React, EJS, Next.js  
-- **Databases**: MySQL, MongoDB, PostgreSQL  
-- **Cloud**: Oracle Cloud, AWS, Azure  
-- **Cybersecurity**: Digital Forensics, Vulnerability Management
-
-### Soft Skills  
-- Team communication and leadership  
-- Strategic planning and problem-solving  
-- Project coordination and deadline management  
-- Automation and manual testing
-
----
-
-## 🏅 Certifications
-
-- Digital Forensics – EC Council  
-- Software Engineering – HackerRank  
-- ISO 27001 LA – CQI | IRCA  
-- Penetration Testing Professional – Cybrary  
-- System Administration – Microsoft  
-- Cybersecurity – Microsoft
-
----
-
-## 🎤 Volunteering & Workshops
-
-- Delivered sessions at **IIT Kanpur**, **IISC Bangalore**, and various institutions on technical topics and hands-on workshops.
-
----
-
-## 🎓 Education
-
-**The Chintels School**  
-2007 – 2022
-
----
-
-> Feel free to reach out for collaboration, freelance gigs, or just to talk tech!
+<p align="center">
+  <i>⭐️ From <a href="https://github.com/typace-team">typace-team</a> | Official account created by <a href="https://github.com/che-ui">@che-ui</a></i>
+</p>
