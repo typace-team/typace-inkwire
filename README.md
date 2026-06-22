@@ -2,7 +2,7 @@
 ![Ultra-fast Deployment](/online.png)
 ![Typace Stats](/Typace-Inkwire.png)
 
-# <div align="center">🚀 Typace Inkwire 杰奏·墨线</div>
+# <div align="center">🚀 Typace Inkwire 杰奏·墨线 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/typace-team/typace-inkwire&project-name=new-inkwire-blog&repository-name=typace-inkwire)</div>
 
 
 
