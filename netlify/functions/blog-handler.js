@@ -1,8 +1,8 @@
-// netlify/functions/blog-handler.js
-const { createVercelMocks } = require('./vercel-adapter');
-const originalHandler = require('../../api/blog'); 
+// netlify/functions/blog-handler.mjs
+import { createVercelMocks } from './vercel-adapter.mjs';
+import originalHandler from '../../api/blog.js';
 
-exports.handler = async (event, context) => {
+export const handler = async (event, context) => {
   const { req, res, getResult } = createVercelMocks(event);
   await originalHandler(req, res);
   return getResult();
