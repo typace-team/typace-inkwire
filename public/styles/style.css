@@ -120,3 +120,47 @@ button.theme-toggle:focus,
 button.navigate-btn:focus {
     outline: none;
 }
+
+/* =========================================
+   核武器：强制所有主容器在暗黑模式下变黑
+   (解决“上面黑下面白”的终极方案)
+   ========================================= */
+
+/* 1. 强制文章内容区、Markdown 渲染区、主容器变黑 */
+html[data-theme="dark"] .markdown-body,
+html[data-theme="dark"] .post-content,
+html[data-theme="dark"] .article-content,
+html[data-theme="dark"] article,
+html[data-theme="dark"] main,
+html[data-theme="dark"] .main-content,
+html[data-theme="dark"] .wrapper,
+html[data-theme="dark"] .container,
+html[data-theme="dark"] #app,
+html[data-theme="dark"] #root,
+html[data-theme="dark"] .content-wrapper {
+    background-color: var(--color-background) !important;
+    color: var(--color-text-primary) !important;
+}
+
+/* 2. 强制所有卡片、列表项、区块变黑 */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .post-item,
+html[data-theme="dark"] .list-item,
+html[data-theme="dark"] .post-list,
+html[data-theme="dark"] section {
+    background-color: var(--color-surface) !important;
+    color: var(--color-text-primary) !important;
+}
+
+/* 3. 修复 Markdown 内部元素（表格、引用等）在暗黑下的显示 */
+html[data-theme="dark"] .markdown-body table th,
+html[data-theme="dark"] .markdown-body table td {
+    border-color: var(--color-border) !important;
+    background-color: var(--color-surface-secondary) !important;
+}
+
+html[data-theme="dark"] .markdown-body blockquote {
+    border-left-color: var(--color-primary) !important;
+    color: var(--color-text-secondary) !important;
+    background-color: var(--color-surface-secondary) !important;
+}
