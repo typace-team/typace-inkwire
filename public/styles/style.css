@@ -1,49 +1,59 @@
+/* =========================================
+   INKWIRE: 首页与博客页核心样式 (彻底重构版)
+   ========================================= */
+
+/* 1. 根治“底部露白”：强制 html 和 body 撑满整个屏幕高度，并使用变量 */
 html, body {
     height: 100%;
+    min-height: 100vh; /* 关键：确保即使内容很少，背景也能铺满全屏 */
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: var(--font-family-sans);
+    background-color: var(--color-background); /* 使用变量，不再写死 #f4f4f9 */
+    color: var(--color-text-primary);          /* 使用变量 */
     display: flex;
     flex-direction: column;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color var(--transition-base), color var(--transition-base);
 }
 
+/* 2. 主内容区域：自动撑满剩余空间 */
 .content {
-    flex: 1;
+    flex: 1; /* 关键：让内容区撑满，把 footer 推到底部 */
     padding: 20px;
+    background-color: var(--color-background); /* 确保内容区也是变量背景 */
 }
 
+/* 3. 基础排版元素 */
 h1, h2, h3, p, a, footer {
-    transition: color 0.3s;
+    transition: color var(--transition-base);
 }
 
 h1 {
-    color: #333;
+    color: var(--color-text-primary);
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
 h2 {
-    color: #444;
+    color: var(--color-text-primary);
     font-size: 2rem;
     margin-top: 20px;
 }
 
 h3 {
-    color: #555;
+    color: var(--color-text-secondary);
     font-size: 1.5rem;
     margin-top: 15px;
 }
 
 p {
     font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
 }
 
 a {
-    color: #1e90ff;
+    color: var(--color-link);
     text-decoration: none;
 }
 
@@ -51,143 +61,62 @@ a:hover {
     text-decoration: underline;
 }
 
+/* 4. 底部 Footer：彻底告别白色背景 */
 footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.9rem;
-    color: #666;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
+    color: var(--color-text-secondary);
+    background-color: var(--color-surface); /* 使用表面色变量，暗黑下自动变黑 */
+    border-top: 1px solid var(--color-border);
 }
 
-/* DARK MODE */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
+/* 5. 代码块样式 */
+pre, code {
+    background-color: var(--color-code-bg);
+    color: var(--color-code-text);
+    padding: 2px 4px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family-mono);
 }
 
-body.dark-mode * {
-    color: inherit;
-    background-color: transparent;
-}
-
-body.dark-mode .content {
-    background-color: #121212;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode p,
-body.dark-mode footer {
-    color: #e0e0e0;
-}
-
-body.dark-mode a {
-    color: #90caf9;
-}
-
-body.dark-mode footer {
-    background-color: #1e1e1e;
-    border-top: 1px solid #333;
-}
-
-body.dark-mode pre,
-body.dark-mode code {
-    background-color: #1e1e1e;
-    color: #dcdcdc;
-}
-
-/* THEME TOGGLE BUTTON */
-button.theme-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.5rem 1rem;
-    background: #ddd;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: background 0.3s ease, color 0.3s ease;
-    z-index: 1000;
-}
-
-button.theme-toggle:hover {
-    background: #bbb;
-}
-
-body.dark-mode button.theme-toggle {
-    background: #333;
-    color: #fff;
-}
-
-button.theme-toggle:focus {
-    outline: none;
-}
-
-/* NAVIGATE BUTTON */
-button.navigate-btn {
-    position: fixed;
-    top: 1rem;
-    right: 11rem;
-    padding: 0.5rem 1rem;
-    background: #ddd;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: background 0.3s ease, color 0.3s ease;
-    z-index: 1000;
-}
-
-button.navigate-btn:hover {
-    background: #bbb;
-}
-
-body.dark-mode button.navigate-btn {
-    background: #333;
-    color: #fff;
+pre {
+    padding: 15px;
+    overflow-x: auto;
 }
 
 /* =========================================
-   INKWIRE: 全局暗黑模式终极修复补丁
-   (Global Dark Mode Fix for Index & Blog)
+   按钮样式 (主题切换 & 导航)
    ========================================= */
-
-/* 1. 根治“底部露白”：强制 html 和 body 撑满整个屏幕高度 */
-html, body {
-    height: 100%;
-    min-height: 100vh; /* 确保即使内容很少，背景也能铺满全屏 */
-    margin: 0;
-    padding: 0;
+button.theme-toggle,
+button.navigate-btn {
+    position: fixed;
+    top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+    z-index: 1000;
 }
 
-/* 2. 强制根元素和 body 在暗黑模式下统一使用背景色变量 */
-html[data-theme="dark"],
-html[data-theme="dark"] body {
-    background-color: var(--bg-primary, #0F0F11) !important;
-    color: var(--text-primary, #EAEAEA) !important;
+button.theme-toggle {
+    right: 1rem;
 }
 
-/* 3. 扫荡“顽固容器”：强制所有常见的主容器在暗黑模式下变黑 */
-html[data-theme="dark"] main,
-html[data-theme="dark"] .container,
-html[data-theme="dark"] .wrapper,
-html[data-theme="dark"] .content,
-html[data-theme="dark"] .post-content,
-html[data-theme="dark"] .article-body,
-html[data-theme="dark"] section {
-    background-color: var(--bg-primary, #0F0F11) !important;
-    color: var(--text-primary, #EAEAEA) !important;
+button.navigate-btn {
+    right: 11rem; /* 保持原有位置 */
 }
 
-/* 4. 修复卡片和代码块在暗黑模式下的对比度 */
-html[data-theme="dark"] .card,
-html[data-theme="dark"] .post-item,
-html[data-theme="dark"] pre,
-html[data-theme="dark"] code {
-    background-color: var(--bg-secondary, #1A1A1D) !important;
-    border-color: var(--border-color, #333336) !important;
-    color: var(--text-primary, #EAEAEA) !important;
+button.theme-toggle:hover,
+button.navigate-btn:hover {
+    background: var(--color-surface-secondary);
+}
+
+button.theme-toggle:focus,
+button.navigate-btn:focus {
+    outline: none;
 }
