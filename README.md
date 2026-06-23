@@ -164,7 +164,7 @@ This project is deeply customized based on the **Vercel Serverless** architectur
 
 ## 🙋‍♂️ About the Creator
 
-Crafted by [@typace-team](https://github.com/typace-team/), Junior High School Students (Grade 9) based in Shanghai, China.
+Crafted by Che from [@typace-team](https://github.com/typace-team/), a Junior High School Student (Grade 9) based in Shanghai, China.
 
 ---
 
@@ -173,4 +173,4 @@ Crafted by [@typace-team](https://github.com/typace-team/), Junior High School S
 
 <div align="center">
 
-### Made with ❤️ by the Typace Team
+### Made with ❤️ by Che
