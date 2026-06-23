@@ -599,3 +599,71 @@ html[data-theme="dark"] code {
     border-color: var(--border-color, #333336) !important;
     color: var(--text-primary, #EAEAEA) !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   INKWIRE 终极排版修复 (精准打击版)
+   ========================================= */
+
+/* 1. 增加手机端文章容器的左右呼吸感 (从 16px 提升到 24px) */
+.post-content,
+.content-inner,
+.markdown-body {
+  padding-left: var(--space-6, 24px) !important;
+  padding-right: var(--space-6, 24px) !important;
+}
+
+/* 2. 精准接管“大图” (只针对本地 assets、GitHub stats 卡片、头像) */
+img[src*="/assets/"], 
+img[src*="github-readme-stats"], 
+img[src*="PROFILE"] {
+  max-width: 100% !important;        /* 绝不超宽 */
+  height: auto !important;           /* 锁死比例 */
+  display: block !important;         /* 独占一行 */
+  margin: var(--space-8, 32px) auto !important; /* 上下留白，左右居中 */
+  border-radius: var(--radius-lg, 12px) !important; /* 高级圆角 */
+  box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1)) !important;
+}
+
+/* 3. 豁免“小徽章” (绝对不碰 shields.io 和 camo 小图标，保护排版！) */
+img[src*="shields.io"], 
+img[src*="camo.githubusercontent.com"] {
+  display: inline-block !important;  /* 保持行内排列 */
+  margin: 0 !important;              /* 清除多余边距 */
+  box-shadow: none !important;       /* 去掉阴影 */
+  border-radius: 0 !important;       /* 保持原样 */
+  vertical-align: middle;
+}
+
+/* 4. 兜底：其他所有未定义的第三方图片 (比如外部链接图) */
+.post-content img:not([src*="shields.io"]):not([src*="camo.githubusercontent.com"]) {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: var(--space-6, 24px) auto !important;
+  border-radius: var(--radius-md, 8px) !important;
+}
+
+/* 5. 暗黑模式下的图片阴影微调 */
+body.dark-mode img[src*="/assets/"],
+body.dark-mode img[src*="github-readme-stats"],
+body.dark-mode .post-content img:not([src*="shields.io"]) {
+  box-shadow: var(--shadow-xl, 0 20px 25px -5px rgba(0,0,0,0.5)) !important;
+  border: 1px solid var(--neutral-800, #27272a) !important;
+}
