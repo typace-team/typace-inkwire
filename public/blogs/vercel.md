@@ -1,5 +1,7 @@
 # 深度解析：Vercel 为什么会被墙？从 SNI 阻断看 Serverless 时代的“连坐”逻辑
 
+![Typace Inkwire](/assets/image.svg)
+
 对于国内的前端开发者来说，Vercel 几乎是部署个人博客、开源文档和 Next.js 项目的“默认选项”。然而，许多人在兴冲冲地拿到 `xxx.vercel.app` 的链接后，却发现一个残酷的现实：**国内访客根本打不开你的网站。**
 
 很多人的第一反应是：“Vercel 这么好用的技术平台，GFW（防火长城）为什么要针对它？”
