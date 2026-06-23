@@ -38,6 +38,7 @@ It’s a markdown-powered, minimal blogging platform that compiles content on-th
 - ⚙️ **Markdown Compilation**: Still powered by `marked`, now running serverlessly.
 - 💅 **Same UI, Better Delivery**: No compromises on theming, dark mode, or user experience.
 - Seamlessly integrated RSS feeds, dynamic Sitemaps, an instant client-side search bar, and a polished 404 page — all inheriting your existing design system and dark mode tokens flawlessly. Zero visual friction, pure functional elegance.
+- Bug fixes and performance improvements.
 
 ---
 
