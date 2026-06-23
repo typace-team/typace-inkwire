@@ -1,9 +1,9 @@
 # Typace Inkwire
 
 ![Typace Inkwire](/assets/image.svg)
-![type with pace](/lang.png)
-![Ultra-fast Deployment](/online.png)
-![Typace Stats](/Typace-Inkwire.png)
+![type with pace](/assets/lang.png)
+![Ultra-fast Deployment](/assets/online.png)
+![Typace Stats](/assets/Typace-Inkwire.png)
 
 
 
