@@ -103,3 +103,31 @@ html[data-theme="dark"] body,
 body.dark-mode {
   background-color: var(--color-background) !important;
 }
+
+/* =========================================
+   INKWIRE: 图片响应式与居中修复补丁
+   (Responsive Image & Center Fix)
+   ========================================= */
+
+/* 1. 限制所有文章容器内的图片，防止撑破屏幕 */
+.content img,
+.post-content img,
+.article-body img,
+article img {
+  max-width: 100%;     /* 核心：图片最大宽度绝不超过父容器的边距 */
+  height: auto;        /* 核心：高度自适应，死死锁住原图宽高比 */
+  display: block;      /* 变成块级元素，才能用 margin 实现左右居中 */
+  margin: 1.5rem auto; /* 上下留白 1.5rem，左右自动居中 */
+  border-radius: 8px;  /* 极客审美：加一点微圆角，告别生硬的直角 */
+  
+  /* 图片加载出来前，使用你暗黑模式变量里的次级背景色作为占位，防止白块闪烁 */
+  background-color: var(--bg-secondary, #f3f4f6); 
+}
+
+/* 2. 针对暗黑模式的微调：加一条极细的边框，让图片和黑色背景有层次感 */
+html[data-theme="dark"] .content img,
+html[data-theme="dark"] .post-content img,
+html[data-theme="dark"] .article-body img {
+  border: 1px solid var(--border-color, #333336);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 暗黑模式下加一点微弱阴影 */
+}
