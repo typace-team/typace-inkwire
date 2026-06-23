@@ -1,6 +1,11 @@
 /* =========================================
-   INKWIRE: 统一暗黑模式支持 (首页/博客页)
+   INKWIRE: 统一暗黑模式与响应式排版支持
    ========================================= */
+
+/* 0. 全局盒模型修复 (极其关键：防止 padding 撑破屏幕宽度) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 /* 1. 根治“底部露白” - 强制全屏背景 */
 html, body {
@@ -17,7 +22,10 @@ html, body {
 /* 2. 主内容区：自动撑满剩余空间 */
 .content {
   flex: 1;
-  padding: 20px;
+  width: 100%;
+  max-width: 900px;       /* 限制主内容区最大宽度 */
+  margin: 0 auto;         /* 让主内容区在电脑端居中 */
+  padding: 20px;          /* 手机端左右留出 20px 呼吸感 */
   background-color: var(--color-background);
 }
 
@@ -30,7 +38,7 @@ html[data-theme="dark"] *:not([class*="code"]) {
   color: var(--color-text-primary) !important;
 }
 
-/* 4. 特别针对 Markdown 容器 - 重点修复 */
+/* 4. 特别针对 Markdown 容器 - 重点修复排版与背景 */
 .markdown-body,
 .post-content,
 .article-content,
@@ -43,6 +51,14 @@ section,
 #content {
   background-color: var(--color-background) !important;
   color: var(--color-text-primary) !important;
+  
+  /* 核心排版修复：限制文章宽度并居中 */
+  max-width: 100%;        /* 手机端不超宽 */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;  /* 防止长代码或长链接撑破屏幕 */
+  overflow-wrap: break-word;
 }
 
 /* 5. 底部 Footer 修复 */
@@ -67,6 +83,7 @@ pre, code {
 pre {
   padding: 15px;
   overflow-x: auto;
+  max-width: 100%;        /* 防止代码块撑破屏幕 */
 }
 
 /* 7. 按钮样式 (主题切换 & 导航) */
@@ -104,24 +121,34 @@ body.dark-mode {
   background-color: var(--color-background) !important;
 }
 
+/* =========================================
+   9. 终极图片与媒体修复 (干净、稳定版)
+   ========================================= */
 
-
-
-main img, article img, .content img, .markdown-body img, .post-content img, .blog-content img, .wrapper img {
-  max-width: calc(100% - 40px) !important;
-  width: auto !important;
-  height: auto !important;
-  display: block !important;
-  margin: 2rem auto !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  object-fit: contain !important;
+/* 强制接管文章里的所有图片和 iframe (比如 B站/YouTube 嵌入视频) */
+img, iframe, video {
+  max-width: 100% !important;   /* 绝不超过父容器宽度 */
+  height: auto !important;      /* 锁死比例，绝不变形 */
+  display: block !important;    /* 变成块级元素，消除底部神秘白边 */
+  margin: 1.5rem auto !important; /* 上下留白，左右自动居中 */
+  border-radius: 8px !important;  /* 优雅圆角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; /* 微阴影 */
+  object-fit: contain !important; /* 确保内容完整显示 */
 }
 
-html[data-theme="dark"] main img, 
-html[data-theme="dark"] article img, 
-html[data-theme="dark"] .content img, 
-html[data-theme="dark"] .markdown-body img {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
-  border: 1px solid #2a2a2a !important;
+/* 针对小图标、emoji 等不需要放大的图片进行豁免 */
+img[width="20"], img[width="24"], img[height="20"], img[height="24"], .icon, .emoji {
+  display: inline-block !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  vertical-align: middle;
+}
+
+/* 暗黑模式下的图片阴影微调 */
+html[data-theme="dark"] img,
+html[data-theme="dark"] iframe,
+html[data-theme="dark"] video {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important; /* 极细的暗边框增加层次 */
 }
