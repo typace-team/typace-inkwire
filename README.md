@@ -51,6 +51,9 @@ typace-inkwire/
 │   ├── index.js         # Homepage rendering
 │   ├── blog.js          # Blog listing route
 │   ├── blog/[slug].js   # Dynamic blog rendering
+│   ├── sitemap.js       # Generate sitemap
+│   ├── search.js        # Generate search bar
+│   ├── rss.js           # Generate rss
 │   └── about.js         # about
 ├── public/
 │   ├── blogs/           # Markdown files for each blog post
