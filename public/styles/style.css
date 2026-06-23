@@ -131,3 +131,52 @@ html[data-theme="dark"] .article-body img {
   border: 1px solid var(--border-color, #333336);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 暗黑模式下加一点微弱阴影 */
 }
+
+/* =========================================
+   INKWIRE 终极图片修复补丁 (NUKE EDITION)
+   强制接管所有文章区域内的图片样式
+   ========================================= */
+
+/* 1. 核弹级选择器：覆盖所有可能包裹文章的容器 */
+main img, 
+article img, 
+.markdown-body img, 
+.prose img, 
+.blog-content img, 
+.post-content img, 
+.content img,
+.container img {
+  
+  /* !important 是 CSS 里的“尚方宝剑”，强制覆盖 Markdown 解析器自带的内联死板宽度 */
+  max-width: 100% !important;     
+  width: 100% !important;         /* 强制让图片宽度填满父容器的可用边距 */
+  height: auto !important;        /* 死死锁住原图宽高比，绝不变形 */
+  
+  display: block !important;      /* 强制变成块级元素，才能居中 */
+  margin: 2rem auto !important;   /* 上下留出 2rem 呼吸感，左右 auto 强制绝对居中 */
+  
+  /* 极客审美：圆角 + 阴影，让图片看起来像悬浮在纸面上 */
+  border-radius: 12px !important; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important; 
+  
+  /* 防止图片加载时白屏闪烁 */
+  background-color: var(--bg-secondary, #f3f4f6) !important; 
+  object-fit: contain !important; /* 确保图片内容完整显示，不被裁剪 */
+}
+
+/* 2. 暗黑模式专属微调：在黑色背景下加一条极细的边框，增加层次感 */
+html[data-theme="dark"] main img,
+html[data-theme="dark"] article img,
+html[data-theme="dark"] .markdown-body img,
+html[data-theme="dark"] .prose img {
+  border: 1px solid var(--border-color, #333336) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important; 
+}
+
+/* 3. 防止过小的图标（比如徽章、小 emoji 图片）被强制拉宽到 100% */
+main img[height], 
+article img[height], 
+.markdown-body img[height] {
+  width: auto !important;
+  max-width: 100% !important;
+}
