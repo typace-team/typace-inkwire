@@ -33,6 +33,8 @@ It’s a markdown-powered, minimal blogging platform that compiles content on-th
 
 ## 📁 Project Structure
 
+*We recommend that you click on each link in this blog framework repository. The code comments and page functions have been carefully designed for clarity, so that you can become more familiar with this wire.*
+
 ```
 typace-inkwire/
 ├── api/                 # Serverless function handlers
