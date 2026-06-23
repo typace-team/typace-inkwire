@@ -104,36 +104,24 @@ body.dark-mode {
   background-color: var(--color-background) !important;
 }
 
-/* =========================================
-   INKWIRE: 图片响应式与居中修复补丁，这是新加的！！！！！！！
-   (Responsive Image & Center Fix)
-   ========================================= */
 
-/* =========================================
-   INKWIRE 终极图片修复：强制留白与居中
-   ========================================= */
 
-/* 强制接管文章里的所有图片 */
-img {
-  /* 核心魔法：强制图片宽度为屏幕宽度减去左右各 20px 的边距，绝不贴边！ */
-  max-width: calc(100% - 40px) !important; 
+
+main img, article img, .content img, .markdown-body img, .post-content img, .blog-content img, .wrapper img {
+  max-width: calc(100% - 40px) !important;
   width: auto !important;
-  
-  /* 强制让图片在中间显示，左右自动分配剩余的边距 */
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 1.5rem !important;
-  
-  /* 锁死比例，加上高级的圆角和阴影 */
   height: auto !important;
+  display: block !important;
+  margin: 2rem auto !important;
   border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  object-fit: contain !important;
 }
 
-/* 针对暗黑模式的阴影微调，让图片在黑色背景下不那么突兀 */
-html[data-theme="dark"] img {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+html[data-theme="dark"] main img, 
+html[data-theme="dark"] article img, 
+html[data-theme="dark"] .content img, 
+html[data-theme="dark"] .markdown-body img {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
   border: 1px solid #2a2a2a !important;
 }
